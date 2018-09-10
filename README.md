@@ -1,1 +1,3 @@
-# Splash-AssessmentApplication built for Assessment with Splash. The application consumes an api and shows a list of messages to the user. The user can navigate through the messages icon in the actionbar. The user can preview each message.
+# Splash-AssessmentApplication built for Assessment with Splash. The application consumes an api and shows a list of messages to the user. 
+User can navigate through the messages icon in the actionbar. 
+User can preview each message.
