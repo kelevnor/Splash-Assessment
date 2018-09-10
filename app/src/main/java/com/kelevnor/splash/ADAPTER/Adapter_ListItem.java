@@ -62,12 +62,12 @@ public class Adapter_ListItem extends RecyclerView.Adapter<Adapter_ListItem.View
         ViewHolder vh = new ViewHolder(v);
         vh.layout = v.findViewById(R.id.ll_layout);
         vh.textLine1 = v.findViewById(R.id.tv_line1);
-//        vh.textLine2 = v.findViewById(R.id.tv_line2);
+        vh.textLine2 = v.findViewById(R.id.tv_line2);
 //        vh.textLine3 = v.findViewById(R.id.tv_line3);
         vh.image = v.findViewById(R.id.iv_image);
 
         vh.textLine1.setTypeface(openSansSemiBold);
-//        vh.textLine2.setTypeface(openSansRegular);
+        vh.textLine2.setTypeface(openSansRegular);
 //        vh.textLine3.setTypeface(openSansRegular);
 
         return vh;
@@ -76,7 +76,9 @@ public class Adapter_ListItem extends RecyclerView.Adapter<Adapter_ListItem.View
     @Override
     public void onBindViewHolder(ViewHolder holder, final int position) {
 //        imageLoader.DisplayImage(Config.BASE_URL+searchList.get(position).getImage(), holder.image, act);
-//        holder.textLine1.setText(searchList.get(position).getTitle());
+        holder.textLine1.setText(searchList.get(position).getFrom());
+        holder.textLine2.setText(searchList.get(position).getMessage());
+
 
 
         holder.layout.setOnClickListener(new View.OnClickListener() {

@@ -1,10 +1,12 @@
 
 package com.kelevnor.splash.MODELS;
 
+import android.support.annotation.NonNull;
+
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class Message {
+public class Message implements Comparable<Message>{
 
     @SerializedName("from")
     @Expose
@@ -62,4 +64,8 @@ public class Message {
         this.status = status;
     }
 
+    @Override
+    public int compareTo(Message o) {
+        return (o.getSentAt()).compareTo(getSentAt());
+    }
 }

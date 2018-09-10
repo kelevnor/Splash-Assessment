@@ -23,6 +23,10 @@
             android:theme="@style/AppTheme">
         </activity>
 
+        <activity android:name=".MessageActivity"
+            android:theme="@style/AppTheme">
+        </activity>
+
         <activity
             android:name=".Splash"
             android:theme="@style/SplashTheme">

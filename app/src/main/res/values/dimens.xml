@@ -8,6 +8,6 @@
     <dimen name="text_size_22">22dp</dimen>
     <dimen name="text_size_20">20dp</dimen>
     <dimen name="view_thickness_1">0.5dp</dimen>
-    <dimen name="adapter_item_border">3dp</dimen>
+    <dimen name="adapter_item_border">1dp</dimen>
 
 </resources>

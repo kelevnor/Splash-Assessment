@@ -3,7 +3,7 @@
     <item>
         <shape android:shape="rectangle">
             <stroke android:width="@dimen/adapter_item_border" android:height="@dimen/adapter_item_border"
-                android:color="#FFFFFF" />
+                android:color="@color/colorViewGray" />
             <solid android:color="#FFFFFF" />
             <padding android:left="@dimen/adapter_item_border" android:top="@dimen/adapter_item_border" android:right="@dimen/adapter_item_border"
                 android:bottom="@dimen/adapter_item_border" />

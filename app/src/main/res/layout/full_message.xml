@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorWhite"
+    android:orientation="vertical"
+    android:paddingTop="20dp"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/tv_message"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/text_size_16"
+        android:layout_centerHorizontal="true"
+        android:padding="10dp"
+        android:layout_margin="10dp"
+        android:gravity="center"
+        android:background="@drawable/background_adapter_item"
+        android:textColor="@color/colorBlack"
+        android:text="NA"/>
+
+    <View
+        android:id="@+id/v_message"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@id/tv_message"
+        android:background="@color/colorViewGray"
+        />
+
+    <TextView
+        android:id="@+id/tv_timestamp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/v_message"
+        android:paddingTop="5dp"
+        android:layout_marginRight="20dp"
+        android:layout_alignParentRight="true"
+        android:textSize="@dimen/text_size_13"
+        android:layout_centerHorizontal="true"
+        android:textColor="@color/colorNotPickedTitle"
+        android:text="NA"/>
+</RelativeLayout>

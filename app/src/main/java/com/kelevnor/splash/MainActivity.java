@@ -24,6 +24,7 @@ import com.kelevnor.splash.UTILITY.Permission_Request_Helper;
 import com.kelevnor.splash.UTILITY.UtilityHelper;
 import com.kelevnor.splash.ADAPTER.Adapter_ListItem;
 
+import java.util.Collections;
 import java.util.List;
 
 public class   MainActivity extends Activity implements PullData.OnAsyncResult, Permission_Request_Helper.OnAsyncResult, Switch.OnCheckedChangeListener, View.OnClickListener{
@@ -81,7 +82,12 @@ public class   MainActivity extends Activity implements PullData.OnAsyncResult, 
     //PullData Interface Listener
     @Override
     public void onResultSuccess(int resultCode, List<Message> objList) {
+
+
+        Collections.sort(objList);
+
         Config.inboxStored = objList;
+
     }
 
     @Override

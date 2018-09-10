@@ -19,20 +19,24 @@ import com.kelevnor.splash.ADAPTER.Adapter_ListItem;
 import com.kelevnor.splash.MODELS.Message;
 import com.kelevnor.splash.UTILITY.Config;
 
-public class ItemDisplayActivity extends Activity implements View.OnClickListener, Adapter_ListItem.onItemClickListener {
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
+
+public class MessageActivity extends Activity implements View.OnClickListener, Adapter_ListItem.onItemClickListener {
 
     Adapter_ListItem listAdapter;
 
     ImageView backIV, addIV;
     RecyclerView listRV;
     LinearLayout eventNotificationsLL, directMessagesLL;
-    TextView actionBarTitle, eventNotificationsTV, directMessagesTV;
+    TextView actionBarTitle, messageTV, timestampTV;
     View belowEventNotificationsV, belowDirectMessagesV;
     Typeface openSansRegular, openSansSemiBold, fontAwesome;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.inbox_messages_layout);
+        setContentView(R.layout.full_message);
 
         ActionBar mActionBar = getActionBar();
         mActionBar.setDisplayShowHomeEnabled(false);
@@ -51,32 +55,37 @@ public class ItemDisplayActivity extends Activity implements View.OnClickListene
         addIV = mCustomView.findViewById(R.id.iv_add);
         listRV = findViewById(R.id.list);
 
+        addIV.setVisibility(View.INVISIBLE);
         eventNotificationsLL = findViewById(R.id.ll_eventnotifications);
         directMessagesLL = findViewById(R.id.ll_directmessages);
 
         actionBarTitle = mCustomView.findViewById(R.id.tv_title);
 
-        eventNotificationsTV = findViewById(R.id.tv_eventnotifications);
-        directMessagesTV = findViewById(R.id.tv_directmessages);
+        messageTV = findViewById(R.id.tv_message);
+        timestampTV = findViewById(R.id.tv_timestamp);
 
         belowEventNotificationsV = findViewById(R.id.v_eventnotifications);
         belowDirectMessagesV = findViewById(R.id.v_directmessages);
 
-        eventNotificationsTV.setTypeface(openSansRegular);
-        directMessagesTV.setTypeface(openSansRegular);
+        messageTV.setTypeface(openSansRegular);
+        timestampTV.setTypeface(openSansRegular);
         actionBarTitle.setTypeface(openSansRegular);
-
-        eventNotificationsLL.setOnClickListener(this);
-        directMessagesLL.setOnClickListener(this);
         backIV.setOnClickListener(this);
 
-        listAdapter = new Adapter_ListItem(ItemDisplayActivity.this, Config.inboxStored, this);
-        listRV.setAdapter(listAdapter);
-        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
-        int resId = R.anim.layout_animation_fall_down;
-        LayoutAnimationController animation = AnimationUtils.loadLayoutAnimation(getApplicationContext(), resId);
-        listRV.setLayoutAnimation(animation);
-        listRV.setLayoutManager(mLayoutManager);
+        Intent i = getIntent();
+        String name = i.getStringExtra("name");
+        String message = i.getStringExtra("message");
+        String timestamp = i.getStringExtra("timestamp");
+        actionBarTitle.setText(name.toUpperCase());
+        messageTV.setText(message);
+        timestampTV.setText(convertTimestamp(timestamp));
+//        listAdapter = new Adapter_ListItem(MessageActivity.this, Config.inboxStored, this);
+//        listRV.setAdapter(listAdapter);
+//        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
+//        int resId = R.anim.layout_animation_fall_down;
+//        LayoutAnimationController animation = AnimationUtils.loadLayoutAnimation(getApplicationContext(), resId);
+//        listRV.setLayoutAnimation(animation);
+//        listRV.setLayoutManager(mLayoutManager);
     }
 
     @Override
@@ -84,11 +93,11 @@ public class ItemDisplayActivity extends Activity implements View.OnClickListene
 
         switch (view.getId()){
             case R.id.ll_directmessages:
-                setActive(directMessagesTV, belowDirectMessagesV, eventNotificationsTV, belowEventNotificationsV);
+//                setActive(directMessagesTV, belowDirectMessagesV, eventNotificationsTV, belowEventNotificationsV);
                 break;
 
             case R.id.ll_eventnotifications:
-                setActive(eventNotificationsTV, belowEventNotificationsV, directMessagesTV, belowDirectMessagesV);
+//                setActive(eventNotificationsTV, belowEventNotificationsV, directMessagesTV, belowDirectMessagesV);
                 break;
 
             case  R.id.iv_back:
@@ -108,10 +117,14 @@ public class ItemDisplayActivity extends Activity implements View.OnClickListene
     @Override
     public void onItemClick(Message item) {
 
-        Intent i = new Intent(this, MessageActivity.class);
-        i.putExtra("name",item.getFrom());
-        i.putExtra("message",item.getMessage());
-        i.putExtra("timestamp",item.getSentAt());
-        startActivity(i);
     }
+
+    private String convertTimestamp (String timestamp){
+
+        Date date = new Date(Long.parseLong(timestamp)*1000);
+        SimpleDateFormat sdf = new SimpleDateFormat("EEEE, MMMM d, yyyy h:mm a", Locale.ENGLISH);
+        return sdf.format(date);
+
+    }
+
 }
