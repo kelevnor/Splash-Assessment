@@ -1,12 +1,18 @@
 package com.kelevnor.splash.UTILITY;
 
 import android.app.Activity;
+import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatDialog;
+import android.view.View;
+import android.view.Window;
+import android.widget.Button;
+import android.widget.TextView;
+
+import com.kelevnor.splash.R;
 
 /**
  * Created by kelevnor on 9/10/18.
@@ -17,17 +23,28 @@ public class UtilityHelper {
 
     //Generic one button dialog
     public static void displayDialogOneButton (Activity con, String title, String message, String centerBtn){
-        final AlertDialog.Builder builder = new AlertDialog.Builder(con);
-        final AppCompatDialog alert = builder.create();
-        builder.setTitle(title);
-        builder.setMessage(message);
-        builder.setPositiveButton(centerBtn, new DialogInterface.OnClickListener() {
+
+        final Dialog dialog = new Dialog(con);
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialog.setContentView(R.layout.dialog_layout);
+        dialog.setTitle(title);
+
+        // set the custom dialog components - text, image and button
+        TextView text = (TextView) dialog.findViewById(R.id.text);
+        text.setText(message);
+
+        Button dialogButton = (Button) dialog.findViewById(R.id.dialogButtonOK);
+        // if button is clicked, close the custom dialog
+        dialogButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(DialogInterface dialogInterface, int i) {
-                dialogInterface.dismiss();
+            public void onClick(View v) {
+                dialog.dismiss();
             }
         });
-        builder.show();
+
+        dialog.show();
+
+
     }
 
     public static boolean isOnline(Activity act) {

@@ -16,20 +16,24 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".MainActivity"
-            android:theme="@style/AppTheme">
+            android:theme="@style/AppTheme"
+            android:configChanges="orientation|screenSize">
         </activity>
 
         <activity android:name=".ItemDisplayActivity"
-            android:theme="@style/AppTheme">
+            android:theme="@style/AppTheme"
+            android:configChanges="orientation|screenSize">
         </activity>
 
         <activity android:name=".MessageActivity"
-            android:theme="@style/AppTheme">
+            android:theme="@style/AppTheme"
+            android:configChanges="orientation|screenSize">
         </activity>
 
         <activity
             android:name=".Splash"
-            android:theme="@style/SplashTheme">
+            android:theme="@style/SplashTheme"
+            android:configChanges="orientation|screenSize">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
