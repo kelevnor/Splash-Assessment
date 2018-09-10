@@ -5,27 +5,22 @@ import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.animation.AnimationUtils;
-import android.view.animation.LayoutAnimationController;
+
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.kelevnor.splash.ADAPTER.Adapter_ListItem;
 import com.kelevnor.splash.MODELS.Message;
-import com.kelevnor.splash.UTILITY.Config;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 
 public class MessageActivity extends Activity implements View.OnClickListener, Adapter_ListItem.onItemClickListener {
-
-    Adapter_ListItem listAdapter;
 
     ImageView backIV, addIV;
     RecyclerView listRV;
@@ -79,26 +74,12 @@ public class MessageActivity extends Activity implements View.OnClickListener, A
         actionBarTitle.setText(name.toUpperCase());
         messageTV.setText(message);
         timestampTV.setText(convertTimestamp(timestamp));
-//        listAdapter = new Adapter_ListItem(MessageActivity.this, Config.inboxStored, this);
-//        listRV.setAdapter(listAdapter);
-//        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
-//        int resId = R.anim.layout_animation_fall_down;
-//        LayoutAnimationController animation = AnimationUtils.loadLayoutAnimation(getApplicationContext(), resId);
-//        listRV.setLayoutAnimation(animation);
-//        listRV.setLayoutManager(mLayoutManager);
     }
 
     @Override
     public void onClick(View view) {
 
         switch (view.getId()){
-            case R.id.ll_directmessages:
-//                setActive(directMessagesTV, belowDirectMessagesV, eventNotificationsTV, belowEventNotificationsV);
-                break;
-
-            case R.id.ll_eventnotifications:
-//                setActive(eventNotificationsTV, belowEventNotificationsV, directMessagesTV, belowDirectMessagesV);
-                break;
 
             case  R.id.iv_back:
                 finish();
@@ -122,7 +103,7 @@ public class MessageActivity extends Activity implements View.OnClickListener, A
     private String convertTimestamp (String timestamp){
 
         Date date = new Date(Long.parseLong(timestamp)*1000);
-        SimpleDateFormat sdf = new SimpleDateFormat("EEEE, MMMM d, yyyy h:mm a", Locale.ENGLISH);
+        SimpleDateFormat sdf = new SimpleDateFormat("MMMM d, yyyy h:mm a", Locale.ENGLISH);
         return sdf.format(date);
 
     }

@@ -14,11 +14,16 @@ import com.kelevnor.splash.ImageLoader.ImageLoader;
 import com.kelevnor.splash.MODELS.Message;
 import com.kelevnor.splash.R;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 /**
- * Created by kelevnor on 08/25/2018.
- */
+ * Created by kelevnor on 9/10/18.
+ *
+ **/
 
 public class Adapter_ListItem extends RecyclerView.Adapter<Adapter_ListItem.ViewHolder> {
     private List<Message> searchList;
@@ -33,7 +38,8 @@ public class Adapter_ListItem extends RecyclerView.Adapter<Adapter_ListItem.View
         ImageView image;
         TextView textLine1;
         TextView textLine2;
-        TextView textLine3;
+        TextView textTime;
+
 
         public ViewHolder(LinearLayout v) {
             super(v);
@@ -63,22 +69,22 @@ public class Adapter_ListItem extends RecyclerView.Adapter<Adapter_ListItem.View
         vh.layout = v.findViewById(R.id.ll_layout);
         vh.textLine1 = v.findViewById(R.id.tv_line1);
         vh.textLine2 = v.findViewById(R.id.tv_line2);
-//        vh.textLine3 = v.findViewById(R.id.tv_line3);
+        vh.textTime = v.findViewById(R.id.tv_time);
         vh.image = v.findViewById(R.id.iv_image);
 
         vh.textLine1.setTypeface(openSansSemiBold);
         vh.textLine2.setTypeface(openSansRegular);
-//        vh.textLine3.setTypeface(openSansRegular);
+        vh.textTime.setTypeface(openSansRegular);
 
         return vh;
     }
 
     @Override
     public void onBindViewHolder(ViewHolder holder, final int position) {
-//        imageLoader.DisplayImage(Config.BASE_URL+searchList.get(position).getImage(), holder.image, act);
         holder.textLine1.setText(searchList.get(position).getFrom());
         holder.textLine2.setText(searchList.get(position).getMessage());
 
+        holder.textTime.setText(convertTimestamp(searchList.get(position).getSentAt()));
 
 
         holder.layout.setOnClickListener(new View.OnClickListener() {
@@ -97,5 +103,43 @@ public class Adapter_ListItem extends RecyclerView.Adapter<Adapter_ListItem.View
 
     public interface onItemClickListener{
         void onItemClick(Message item);
+    }
+
+    private String convertTimestamp (String timestamp){
+
+        long nowTime = Calendar.getInstance().getTimeInMillis()/1000;
+
+        long diff = Math.abs(nowTime - Long.parseLong(timestamp));
+
+        final int HOURS_IN_DAY = 24;
+        final int MINUTES_IN_AN_HOUR = 60;
+        final int SECONDS_IN_A_MINUTE = 60;
+
+        long totalMinutes = diff / SECONDS_IN_A_MINUTE;
+        long minutes = totalMinutes % MINUTES_IN_AN_HOUR;
+        long hours = totalMinutes / MINUTES_IN_AN_HOUR;
+        long days = hours/HOURS_IN_DAY;
+
+        //Message sent before now time
+        if(nowTime>Long.parseLong(timestamp)){
+            if(hours>24){
+                return "> "+days+" days ago";
+            }
+            else{
+                return hours+" hr "+  minutes +" min ago";
+            }
+
+        }
+        //Message sent after now time
+        else{
+            if(hours>24){
+                return "> "+days+" days ahead";
+            }
+            else{
+                return hours+" hr "+  minutes +" min ahead";
+            }
+
+        }
+
     }
 }

@@ -1,8 +1,6 @@
 
 package com.kelevnor.splash.MODELS;
 
-import android.support.annotation.NonNull;
-
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 

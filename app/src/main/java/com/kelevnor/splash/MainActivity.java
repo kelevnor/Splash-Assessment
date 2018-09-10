@@ -22,7 +22,6 @@ import com.kelevnor.splash.REST.PullData;
 import com.kelevnor.splash.UTILITY.Config;
 import com.kelevnor.splash.UTILITY.Permission_Request_Helper;
 import com.kelevnor.splash.UTILITY.UtilityHelper;
-import com.kelevnor.splash.ADAPTER.Adapter_ListItem;
 
 import java.util.Collections;
 import java.util.List;
@@ -33,7 +32,6 @@ public class   MainActivity extends Activity implements PullData.OnAsyncResult, 
     Switch enablePerm;
     Switch enableInternet;
     LinearLayout layout;
-    Adapter_ListItem listAdapter;
     Typeface openSansRegular, openSansSemiBold, fontAwesome;
     ImageView actionbarBack, actionbarMessages, actionbarInfo;
     @Override

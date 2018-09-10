@@ -22,19 +22,21 @@
             />
 
         <RelativeLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="match_parent">
 
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:id="@+id/ll_textlayout"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
-                android:layout_marginRight="40dp"
+                android:layout_toLeftOf="@id/iv_whitearrow"
+                android:layout_marginRight="30dp"
                 android:orientation="vertical">
 
                 <TextView
                     android:id="@+id/tv_line1"
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="@color/colorWhite"
 
@@ -42,18 +44,41 @@
                     android:textColor="@color/colorAccent"
                     android:textSize="@dimen/text_size_18" />
 
-                <TextView
-                    android:id="@+id/tv_line2"
+                <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentBottom="true"
-                    android:background="@color/colorWhite"
-                    android:ellipsize="end"
-                    android:maxLines="1"
-                    android:text="NA"
-                    android:textColor="@color/colorAccent"
-                    android:textSize="@dimen/text_size_13" />
+
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/tv_line2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="120dp"
+                        android:background="@color/colorWhite"
+                        android:ellipsize="end"
+                        android:maxLines="1"
+                        android:text=""
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/text_size_13" />
+
+                    <TextView
+                        android:id="@+id/tv_time"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@color/transparent"
+                        android:maxLines="1"
+                        android:text="NA"
+                        android:layout_alignRight="@id/tv_line2"
+                        android:layout_alignBottom="@id/tv_line2"
+                        android:textColor="@color/colorNotPickedTitle"
+                        android:textSize="@dimen/text_size_13" />
+                </RelativeLayout>
+
             </LinearLayout>
+
+
+
 
             <ImageView
                 android:id="@+id/iv_whitearrow"
