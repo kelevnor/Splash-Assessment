@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--<color name="colorPrimary">@color/transparent</color>-->
+    <color name="colorPrimary">#333333</color>
+    <color name="colorPrimaryDark">#2e2e2e</color>
+    <color name="colorPrimaryDarker">#2b2b2b</color>
+    <color name="colorPrimaryDarkest">#272727</color>
+
+    <color name="colorBlack">#000000</color>
+    <color name="colorNotPickedTitle">#c6c6c6</color>
+    <color name="colorViewGray">#ececec</color>
+    <color name="transparent">#0000</color>
+    <color name="colorACME_Red">#cd5241</color>
+    <color name="colorAccent">#2d3134</color>
+    <color name="colorGray">#CCCCCC</color>
+    <color name="colorGrayLight">#EEEEEE</color>
+    <color name="colorGrayDark">#BBBBBB</color>
+    <color name="colorWhite">#FFFFFF</color>
+    <color name="colorMaxDark">#555555</color>
+</resources>

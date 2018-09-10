@@ -5,7 +5,7 @@
     android:orientation="vertical"
     android:paddingLeft="20dp"
     android:paddingRight="20dp"
-    android:background="@color/colorPrimary">
+    android:background="@color/colorWhite">
 
     <ImageView
         android:id="@+id/iv_back"
@@ -16,49 +16,29 @@
         android:layout_centerVertical="true"
         android:gravity="center_vertical|right"
         android:textColor="@color/colorWhite"
-        android:src="@drawable/white_arrow"/>
-    <!--<android.support.v7.widget.AppCompatTextView-->
-        <!--android:id="@+id/tvTitle"-->
-        <!--style="@style/TextAppearance.AppCompat.Widget.ActionBar.Title"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="match_parent"-->
-        <!--android:layout_gravity="center"-->
-        <!--android:gravity="center"-->
-        <!--android:textSize="@dimen/text_size_18"-->
-        <!--android:textColor="@color/colorAccent"-->
-        <!--android:text="@string/app_name"/>-->
-
-    <LinearLayout
+        android:src="@drawable/black_arrow"/>
+    <TextView
+        android:id="@+id/tv_title"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        android:layout_alignParentRight="true"
-        android:orientation="horizontal">
+        android:layout_centerInParent="true"
+        android:gravity="center"
+        android:textSize="@dimen/text_size_18"
+        android:textColor="@color/colorAccent"
+        android:text="@string/inbox_title"/>
+
+
         <ImageView
-            android:id="@+id/iv_message"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:adjustViewBounds="true"
-            android:visibility="visible"
-            android:layout_alignLeft="@id/iv_info"
-            android:layout_gravity="center_vertical"
-            android:gravity="center_vertical|right"
-            android:textColor="@color/colorWhite"
-            android:layout_marginRight="20dp"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp"
-            android:src="@drawable/white_messages"/>
-        <ImageView
-            android:id="@+id/iv_info"
+            android:id="@+id/iv_add"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:adjustViewBounds="true"
             android:visibility="visible"
             android:paddingLeft="20dp"
-
-            android:layout_gravity="center_vertical"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
             android:gravity="center_vertical|right"
             android:textColor="@color/colorWhite"
-            android:src="@drawable/info"
+            android:src="@drawable/group_2"
             />
-    </LinearLayout>
 </RelativeLayout>

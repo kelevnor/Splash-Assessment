@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">Splash Demo</string>
+    <string name="error_label">Error</string>
+    <string name="error_internet">No Internet Detected</string>
+    <string name="error_pull_data">Could not access server at this time</string>
+
+    <string name="permission_required_label">Permission Required</string>
+    <string name="permission_required_storage">In order to access the content of \nthe application, Storage permission is required</string>
+    <string name="permission_required_storage_rationale">"In order to access any media files \nof the application the storage \npermission is required"</string>
+
+    <string name="bottombtn_dismiss">Dismiss</string>
+    <string name="bottombtn_cancel">Cancel</string>
+    <string name="bottombtn_ok">Ok</string>
+
+    <string name="alert_permission">Enable Permission</string>
+    <string name="alert_wifi">Enable Wifi</string>
+    <string name="inbox_title">Inbox</string>
+    //FontAwesome Values
+    <string name="fa_back_arrow">&#xf060;</string>
+    <string name="fa_messages">&#xf0e0;</string>
+    <string name="fa_info">&#xf05a;</string>
+</resources>
