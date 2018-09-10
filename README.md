@@ -1,0 +1,2 @@
+# An application that consumes an API call and displays a list of data. User can also navigate to each item and check individually. Demo for WeightWatchers (Android Role).
+# Splash-AssessmentApplication built for Assessment with Splash. The application consumes an api and shows a list of messages to the user. The user can navigate through the messages icon in the actionbar. The user can preview each message.
